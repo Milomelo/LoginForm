@@ -14,13 +14,13 @@
     회원가입 페이지
     <div>
         <div class="m_joinbox">
-            <form action="/join" method="post">
+            <form action="/join" method="post" onsubmit="return validation()">
                 <input id="username" name="username" class="m_join_contentbox" type="text" placeholder="아이디를 입력해주세요"
-                    required>
+                    required maxlength="20" minlength="4">
                 <input id="password" name="password" class="m_join_contentbox" type="password"
-                    placeholder="비밀번호를 입력해주세요" required>
-                <input id="adress" name="adress" class="m_join_contentbox" type="text" placeholder="주소를 입력해주세요"
-                    required>
+                    placeholder="비밀번호를 입력해주세요" required maxlength="20" minlength="4">
+                <input id="adress" name="adress" class="m_join_contentbox" type="text" placeholder="주소를 입력해주세요" required
+                    minlength=8, maxlength=100>
         </div>
     </div>
     <div>
@@ -30,3 +30,33 @@
 </body>
 
 </html>
+
+<script>
+
+    let valid = {
+        username: {
+            state: false,
+            msg: ""
+        },
+        password: {
+            state: false,
+            msg: ""
+        }
+    }
+
+    function validation() {
+        if (valid.username.state && valid.password.state) {
+            return true;
+        } else {
+            let errorMsgs = ``;
+
+            errorMsgs += `${valid.username.msg}<br/>`;
+            errorMsgs += `${valid.password.msg}<br/>`;
+
+            $(".my_error_box").html(errorMsgs);
+            $(".my_error_box").removeClass("my_hidden");
+            return false;
+        }
+    }
+
+</script>
