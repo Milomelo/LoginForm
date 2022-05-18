@@ -11,7 +11,7 @@ public class UserController {
 
     @GetMapping("/")
     public String main() {
-        return "index";
+        return "join-form";
     }
 
 }
