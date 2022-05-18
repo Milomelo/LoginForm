@@ -1,0 +1,12 @@
+.m_join_contentbox {
+    border: 1px solid black;
+
+}
+
+.m_joinbox {
+    border: 2px solid black;
+    width: 170px;
+    height: 100px;
+    padding: 5px 5px 5px 5px;
+    margin-bottom: 5px;
+}

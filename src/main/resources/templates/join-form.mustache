@@ -6,10 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입 페이지</title>
+    <link rel="stylesheet" href="/css/join.css">
+
 </head>
 
 <body>
     회원가입 페이지
+    <div>
+        <div class="m_joinbox">
+            <form action="/join" method="post">
+                <input id="username" name="username" class="m_join_contentbox" type="text" placeholder="아이디를 입력해주세요"
+                    required>
+                <input id="password" name="password" class="m_join_contentbox" type="password"
+                    placeholder="비밀번호를 입력해주세요" required>
+                <input id="adress" name="adress" class="m_join_contentbox" type="text" placeholder="주소를 입력해주세요"
+                    required>
+        </div>
+    </div>
+    <div>
+        <button> 회원가입 </button>
+    </div>
+    </form>
 </body>
 
 </html>
