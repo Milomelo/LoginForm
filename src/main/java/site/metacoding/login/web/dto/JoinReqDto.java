@@ -23,13 +23,13 @@ public class JoinReqDto {
     @NotBlank
     private String password;
     @Size(min = 8, max = 100)
-    private String address;
+    private String adress;
 
     public User toEntity() {
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
-        user.setAddress(address);
+        user.setAdress(adress);
 
         return user;
     }
