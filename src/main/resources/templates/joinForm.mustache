@@ -7,25 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입 페이지</title>
     <link rel="stylesheet" href="/css/Common.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 
 <body>
     회원가입 페이지
     <div>
         <div class="m_mainbox">
-            <form action="/join" method="post" onsubmit="return validation()">
+            <form action="/join" method="post" onclick="validation()">
                 <input id="username" name="username" class="m_contentbox" type="text" placeholder="아이디를 입력해주세요" required
                     maxlength="20" minlength="4">
                 <input id="password" name="password" class="m_contentbox" type="password" placeholder="비밀번호를 입력해주세요"
                     required maxlength="20" minlength="4">
                 <input id="adress" name="adress" class="m_contentbox" type="text" placeholder="주소를 입력해주세요" required
                     minlength=8, maxlength=100>
+                <input type="button" onClick="goPopup();" value="주소검색" />
+
         </div>
     </div>
     <div>
         <button type="submit"> 회원가입 </button>
         <button onclick="location.href='loginForm'  "> 로그인 </button>
-
     </div>
     </form>
 </body>
@@ -33,7 +36,6 @@
 </html>
 
 <script>
-
     let valid = {
         username: {
             state: false,
@@ -56,5 +58,12 @@
 
             $(" .my_error_box").html(errorMsgs); $(".my_error_box").removeClass("my_hidden"); return false;
         }
+    }
+    function goPopup() {
+        var pop = window.open("/popup/jusoPopup", "pop", "width=570,height=420, scrollbars=yes, resizable=yes");
+    }
+    function jusoCallBack(adress) {
+        // 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+        $("#adress").val(adress);
     }
 </script>
