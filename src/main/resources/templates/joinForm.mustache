@@ -6,25 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입 페이지</title>
-    <link rel="stylesheet" href="/css/join.css">
-
+    <link rel="stylesheet" href="/css/Common.css">
 </head>
 
 <body>
     회원가입 페이지
     <div>
-        <div class="m_joinbox">
+        <div class="m_mainbox">
             <form action="/join" method="post" onsubmit="return validation()">
-                <input id="username" name="username" class="m_join_contentbox" type="text" placeholder="아이디를 입력해주세요"
+                <input id="username" name="username" class="m_contentbox" type="text" placeholder="아이디를 입력해주세요" required
+                    maxlength="20" minlength="4">
+                <input id="password" name="password" class="m_contentbox" type="password" placeholder="비밀번호를 입력해주세요"
                     required maxlength="20" minlength="4">
-                <input id="password" name="password" class="m_join_contentbox" type="password"
-                    placeholder="비밀번호를 입력해주세요" required maxlength="20" minlength="4">
-                <input id="adress" name="adress" class="m_join_contentbox" type="text" placeholder="주소를 입력해주세요" required
+                <input id="adress" name="adress" class="m_contentbox" type="text" placeholder="주소를 입력해주세요" required
                     minlength=8, maxlength=100>
         </div>
     </div>
     <div>
         <button type="submit"> 회원가입 </button>
+        <button onclick="location.href='loginForm'  "> 로그인 </button>
+
     </div>
     </form>
 </body>
@@ -53,10 +54,7 @@
             errorMsgs += `${valid.username.msg}<br/>`;
             errorMsgs += `${valid.password.msg}<br/>`;
 
-            $(".my_error_box").html(errorMsgs);
-            $(".my_error_box").removeClass("my_hidden");
-            return false;
+            $(" .my_error_box").html(errorMsgs); $(".my_error_box").removeClass("my_hidden"); return false;
         }
     }
-
 </script>

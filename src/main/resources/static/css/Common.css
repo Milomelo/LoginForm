@@ -1,9 +1,9 @@
-.m_join_contentbox {
+.m_contentbox {
     border: 1px solid black;
 
 }
 
-.m_joinbox {
+.m_mainbox {
     border: 2px solid black;
     width: 170px;
     height: 100px;
