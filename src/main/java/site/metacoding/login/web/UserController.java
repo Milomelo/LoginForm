@@ -2,6 +2,8 @@ package site.metacoding.login.web;
 
 import javax.validation.Valid;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import lombok.RequiredArgsConstructor;
+import site.metacoding.login.config.auth.LoginUser;
 import site.metacoding.login.service.UserService;
 import site.metacoding.login.util.UtilValid;
 import site.metacoding.login.web.dto.JoinReqDto;
@@ -18,6 +21,12 @@ import site.metacoding.login.web.dto.JoinReqDto;
 public class UserController {
 
     private final UserService userService;
+
+    @GetMapping("/")
+    public String main(@AuthenticationPrincipal LoginUser loginUser) {
+
+        return "index";
+    }
 
     @GetMapping("/joinForm")
     public String joinForm() {
@@ -42,10 +51,10 @@ public class UserController {
         return "/jusoPopup";
     }
 
-    @GetMapping("/")
-    public String jusoApi() {
-        return "/sample";
-    }
+    // @GetMapping("/")
+    // public String jusoApi() {
+    // return "/sample";
+    // }
 
     @PostMapping("/popup/jusoPopup")
     public String postMethodName(String inputYn, String roadFullAddr, Model model) {
